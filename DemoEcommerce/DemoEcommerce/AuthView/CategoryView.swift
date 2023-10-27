@@ -9,7 +9,11 @@ import SwiftUI
 
 struct CategoryView: View {
     var body: some View {
-        Text("This is the category view")
+        NavigationStack {
+            HStack {
+                Text("This is the category view")
+            }
+        }
     }
 }
 

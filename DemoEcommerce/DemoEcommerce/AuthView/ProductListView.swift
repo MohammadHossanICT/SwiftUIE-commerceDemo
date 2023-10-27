@@ -10,8 +10,10 @@ import SwiftUI
 struct ProductListView: View {
     
     @StateObject var viewModel = ProductListViewModel(repository: ProductRepositoryImplementation(networkManager: NetworkManager()))
+    @State var searchText = ""
 
     var body: some View {
+
         NavigationStack {
             VStack {
                 if viewModel.customError != nil && !viewModel.refreshing {
@@ -22,13 +24,15 @@ struct ProductListView: View {
                     }
                     if viewModel.productLists.count > 0 && !viewModel.refreshing {
 
-                        List(viewModel.productLists, id: \.self) { product in
+                        List(viewModel.productList, id: \.self) { product in
                             ProductListViewCell(productData: product)
 
                         } .listStyle(.grouped)
                     }
                 }
             }
+            .searchable(text: $searchText)
+            .onChange(of: searchText, perform: viewModel.performSearch)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     getToolBarView()

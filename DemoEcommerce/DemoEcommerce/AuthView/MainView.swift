@@ -11,7 +11,6 @@ struct MainView: View {
 
     @StateObject var viewModel = ProductListViewModel(repository: ProductRepositoryImplementation(networkManager: NetworkManager()))
 
-
     var body: some View {
         TabView {
             ProductListView(viewModel: viewModel)
@@ -22,10 +21,16 @@ struct MainView: View {
                 .tabItem {
                     Label("Category", systemImage: "list.dash")
                 }
-            ListOfcategoriesView()
+            OrderView()
                 .tabItem {
-                    Label("List Category ", systemImage: "list.dash")
+                    Label("Cart", systemImage: "cart")
+
                 }
+            ProfileView()
+                .tabItem {
+                    Label("Profile ", systemImage: "gear")
+                    
+            }
         }
     }
 }
