@@ -18,7 +18,7 @@ struct ProductListViewCell: View {
                     .frame(width: 150, height: 150)
                     .mask(RoundedRectangle(cornerRadius: 16))
             }
-            VStack(alignment: .leading,spacing: 5){
+            VStack(alignment: .leading,spacing: 5) {
                 Text("Name: " +  (productData.title))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.headline)

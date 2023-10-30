@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentViewOne: View {
 
     @EnvironmentObject var viewModel: AuthViewModel
+    
     var body: some View {
         Group {
             if viewModel.userSession != nil {
