@@ -11,6 +11,7 @@ import Firebase
 @main
 struct DemoEcommerceApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var order = Order()
 
     init() {
         FirebaseApp.configure()
@@ -19,6 +20,7 @@ struct DemoEcommerceApp: App {
         WindowGroup {
            ContentViewOne()
                 .environmentObject(viewModel)
+                .environmentObject(order)
         }
     }
 }

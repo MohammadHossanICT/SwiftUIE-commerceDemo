@@ -13,10 +13,10 @@ struct ProductData: Codable, Hashable {
 }
 
 // MARK: - Product
-struct Product: Codable, Hashable {
+struct Product: Codable, Hashable, Identifiable {
     let id: Int
-    let title, description: String
-    let price: Int
+    var title, description: String
+    var price: Int
     let discountPercentage, rating: Double
     let stock: Int
     let brand, category: String

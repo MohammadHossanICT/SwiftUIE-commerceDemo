@@ -10,6 +10,7 @@ import SwiftUI
 struct ProductListViewCell: View {
 
     let productData: Product
+    @EnvironmentObject var order: Order
 
     var body: some View {
         HStack {
@@ -25,11 +26,28 @@ struct ProductListViewCell: View {
 
                 Text("Description: " + (productData.description))
                     .frame(maxWidth: .infinity, alignment: .leading)
-
+                    .multilineTextAlignment(.leading)
 
                 Text("Price: £" + String(productData.price))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.subheadline)
+
+                Button {
+                    order.add(item: productData)
+
+                } label: {
+                    HStack {
+                        Image(systemName: "cart.badge.plus")
+
+                        Text("Add to Cart")
+                            .fontWeight(.semibold)
+                    }
+                    .foregroundColor(.white)
+                    .frame(width: 150 , height: 40)
+
+                }
+                .background(Color(.systemBlue))
+                .cornerRadius(10)
             }
         }
     }
@@ -38,6 +56,7 @@ struct ProductListViewCell: View {
 struct ProductListViewCell_Previews: PreviewProvider {
     static var previews: some View {
         ProductListViewCell(productData: Product(id: 1, title: "test", description: "test", price: 21, discountPercentage: 11, rating: 12, stock: 3, brand: "test", category: "test", thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg", images: []))
+            .environmentObject(Order())
 
     }
 }

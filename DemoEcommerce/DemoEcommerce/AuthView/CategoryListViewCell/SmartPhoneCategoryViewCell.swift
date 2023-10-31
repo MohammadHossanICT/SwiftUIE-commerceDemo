@@ -11,6 +11,8 @@ struct SmartPhoneCategoryViewCell: View {
     let productData: Product
     @StateObject var viewModel = CategorytListViewModel(repository: CategoryRepositoryImplementation(networkManager: NetworkManager()))
 
+    var colors: [Color] = [.yellow, .purple, .green, .blue, .teal]
+
     var body: some View {
 
         HStack {
@@ -26,15 +28,15 @@ struct SmartPhoneCategoryViewCell: View {
 
                 Text("Discount: £" + (String(productData.discountPercentage)))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.system(size: 20))
+                    .font(.system(size: 15))
 
                 Text("Price: £" + String(productData.price))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.system(size: 20))
+                    .font(.system(size: 15))
             }
         }
         .padding(10)
-        .background(.blue)
+        .background(colors.randomElement() ?? Color.clear)
         .cornerRadius(9)
         .font(.system(size: 23))
         .frame(height: 100)

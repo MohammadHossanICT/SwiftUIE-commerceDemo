@@ -15,7 +15,6 @@ struct CategoryView: View {
     private var colors: [Color] = [.yellow, .purple, .green, .blue, .teal]
     private var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
 
-
     var body: some View {
 
         NavigationStack {
@@ -44,6 +43,7 @@ struct CategoryView: View {
                                 .padding(9)
                             }
                         }
+
                         Section {
                             Text("Product List")
                                 .smartPhoneModifier()
@@ -65,6 +65,7 @@ struct CategoryView: View {
                     }
                 }
             }.navigationTitle(Text("Category List"))
+    
         }.task {
             await getDataFromAPI()
         }
@@ -103,6 +104,5 @@ struct CategoryView: View {
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryView()
-//        CategoryView(viewModel:  CategorytListViewModel(repository: CategoryRepositoryImplementation(networkManager: NetworkManager())))
     }
 }
