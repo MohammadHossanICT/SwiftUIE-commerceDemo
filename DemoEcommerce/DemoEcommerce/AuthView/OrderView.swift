@@ -9,6 +9,9 @@ import SwiftUI
 
 struct OrderView: View {
     @EnvironmentObject var order: Order
+    private var fee: Double = 5.00
+    @State private var isOn1 = false
+    @State private var isOn2 = false
 
     var body: some View {
         NavigationStack {
@@ -90,7 +93,49 @@ struct OrderView: View {
                         Text("\(order.productTotal.formatted(.currency(code: "GBP")))")
                             .bold()
                     }
-                    .padding()
+                    .padding(5)
+
+                    HStack {
+                        Text("Choose Delivery Option")
+                            .bold()
+                            .frame(maxWidth: .infinity, alignment: .center)
+
+                    }
+                    .padding(5)
+                    VStack(alignment: .leading) {
+                        Toggle("Standard : Free ", isOn: $isOn1)
+                            .toggleStyle(CheckboxToggleStyle(style: .circle))
+                            .foregroundColor(.blue)
+                            .onChange(of: isOn1, perform: {  flag in
+                                if flag {
+                                    isOn2 = false
+                                }
+                            })
+                            Toggle("Express : Charge \(fee.formatted(.currency(code: "GBP")))", isOn: $isOn2)
+                            .toggleStyle(CheckboxToggleStyle(style: .circle))
+                            .foregroundColor(.blue)
+                            .onChange(of: isOn2, perform: {  flag in
+                                if flag {
+                                    isOn1 = false
+                                }
+                            })
+                    }
+
+                    HStack {
+                        Text("Grand total is :")
+                            .bold()
+                        Spacer()
+                        if isOn2 {
+
+                            Text("\((order.productTotal + fee).formatted(.currency(code: "GBP")))")
+                                .bold()
+
+                        } else {
+                            Text("\(order.productTotal.formatted(.currency(code: "GBP")))")
+                                .bold()
+                        }
+                    }
+                    .padding(5)
                 }
                 Section {
                     NavigationLink("Place Order") {
