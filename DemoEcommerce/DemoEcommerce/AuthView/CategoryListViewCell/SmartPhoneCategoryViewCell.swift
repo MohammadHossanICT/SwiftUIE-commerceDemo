@@ -26,11 +26,11 @@ struct SmartPhoneCategoryViewCell: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.headline)
 
-                Text("Discount: £" + (String(productData.discountPercentage)))
+                Text("Discount: " + (String(productData.discountPercentage.formatted(.currency(code: "GBP")))))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 15))
 
-                Text("Price: £" + String(productData.price))
+                Text("Price: " + String(productData.price.formatted(.currency(code: "GBP"))))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 15))
             }
@@ -46,6 +46,6 @@ struct SmartPhoneCategoryViewCell: View {
 
 struct SmartPhoneCategoryViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        SmartPhoneCategoryViewCell(productData: Product(id: 1, title: "test", description: "test", price: 21, discountPercentage: 11, rating: 12, stock: 3, brand: "test", category: "test", thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg", images: []))
+        SmartPhoneCategoryViewCell(productData: Product(id: 1, title: "test", price: 12, quantity: 2, total: 300, discountPercentage: 23, discountedPrice: 12, thumbnail: "test"))
     }
 }

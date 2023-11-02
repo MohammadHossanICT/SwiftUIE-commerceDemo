@@ -24,11 +24,11 @@ struct ProductListViewCell: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.headline)
 
-                Text("Description: " + (productData.description))
+                Text("ID: " + String(productData.id))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
 
-                Text("Price: £" + String(productData.price))
+                Text("Price: " + String(productData.price.formatted(.currency(code: "GBP"))))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.subheadline)
 
@@ -55,7 +55,7 @@ struct ProductListViewCell: View {
 
 struct ProductListViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        ProductListViewCell(productData: Product(id: 1, title: "test", description: "test", price: 21, discountPercentage: 11, rating: 12, stock: 3, brand: "test", category: "test", thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg", images: []))
+        ProductListViewCell(productData: Product(id: 1, title: "test", price: 12, quantity: 2, total: 12, discountPercentage: 12.0, discountedPrice: 12, thumbnail: "test"))
             .environmentObject(Order())
 
     }

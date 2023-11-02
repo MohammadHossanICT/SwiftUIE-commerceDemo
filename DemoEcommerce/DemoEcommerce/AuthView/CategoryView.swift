@@ -29,7 +29,7 @@ struct CategoryView: View {
                     if viewModel.categoryLists.count > 0 && !viewModel.refreshing {
 
                         Section {
-                            Text("Smart Phone List")
+                            Text("Woman Dress")
                                 .smartPhoneModifier()
 
                             ScrollView(.horizontal, showsIndicators: false) {
@@ -75,7 +75,7 @@ struct CategoryView: View {
     }
 
     func getDataFromAPI() async {
-        await viewModel.getCategoryList(urlStr: NetworkURL.categoryUrl)
+        await viewModel.getCategoryList(urlStr: NetworkURL.productUrl)
     }
 
     @ViewBuilder

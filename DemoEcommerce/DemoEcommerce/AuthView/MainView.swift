@@ -26,7 +26,7 @@ struct MainView: View {
                 .tabItem {
                   Label("Cart", systemImage: "cart")
                 }
-                .badge(order.product.count)
+                .badge(order.products.count)
 
             ProfileView()
                 .tabItem {

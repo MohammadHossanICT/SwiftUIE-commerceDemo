@@ -8,7 +8,5 @@
 import Foundation
 
 struct NetworkURL {
-    static let productUrl = "https://dummyjson.com/products"
-    static let categoryUrl = "https://dummyjson.com/products/category/smartphones"
-    static let categoriesUrl = "https://dummyjson.com/products/categories"
+    static let productUrl = "https://dummyjson.com/carts"
 }

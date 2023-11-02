@@ -9,17 +9,28 @@ import Foundation
 
 // MARK: - Welcome
 struct ProductData: Codable, Hashable {
+    let carts: [Cart]
+}
+
+// MARK: - Cart
+struct Cart: Codable, Hashable {
+    let id: Int
     let products: [Product]
 }
 
 // MARK: - Product
 struct Product: Codable, Hashable, Identifiable {
     let id: Int
-    var title, description: String
-    var price: Int
-    let discountPercentage, rating: Double
-    let stock: Int
-    let brand, category: String
+    let title: String
+    var price, quantity, total: Int
+    let discountPercentage: Double
+    let discountedPrice: Int
     let thumbnail: String
-    let images: [String]
+}
+
+extension Product {
+    
+    var subTotal: Double {
+        Double(quantity * price)
+    }
 }

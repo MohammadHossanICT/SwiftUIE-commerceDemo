@@ -40,7 +40,7 @@ extension ProductListViewModel: ProductListViewModelAction {
             let lists = try await repository.getList(for: url)
             refreshing = false
             isErrorOccured = false
-            productLists = lists.products
+            productLists = lists.carts.first?.products ?? []
             
         } catch {
             refreshing = false

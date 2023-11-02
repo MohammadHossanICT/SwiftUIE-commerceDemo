@@ -39,7 +39,7 @@ extension CategorytListViewModel: CategorytListViewModelAction {
             let lists = try await repository.getList(for: url)
             refreshing = false
             isErrorOccured = false
-            categoryLists = lists.products
+            categoryLists = lists.carts.first?.products ?? []
 
         } catch {
             refreshing = false
