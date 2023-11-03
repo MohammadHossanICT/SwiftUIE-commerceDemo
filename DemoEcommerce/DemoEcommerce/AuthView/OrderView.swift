@@ -14,7 +14,9 @@ struct OrderView: View {
     @State private var isOn2 = false
 
     var body: some View {
+
         NavigationStack {
+            
             List {
                 Section {
                     ForEach.init($order.products) { $item in
@@ -65,7 +67,6 @@ struct OrderView: View {
                             }
                             Spacer()
                         }
-
                         VStack {
                             HStack(spacing: 20) {
                                 Text("Name: \(item.title)")
@@ -136,6 +137,9 @@ struct OrderView: View {
                         }
                     }
                     .padding(5)
+                    HStack {
+                        ApplyPaymentButton(action: order.applePay)
+                    }
                 }
                 Section {
                     NavigationLink("Place Order") {
@@ -143,6 +147,12 @@ struct OrderView: View {
                 }
             }
             .navigationTitle("Order")
+            .padding(.top)
+            .onDisappear {
+                if order.paymentSuccess {
+                    order.paymentSuccess = false
+                }
+            }
         }
     }
 }

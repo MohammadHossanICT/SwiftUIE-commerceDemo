@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5241A4DA2AF533D700C0484A /* ApplyPaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241A4D92AF533D700C0484A /* ApplyPaymentButton.swift */; };
+		5241A4DC2AF541B300C0484A /* PaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241A4DB2AF541B300C0484A /* PaymentHandler.swift */; };
 		5258FA6C2AE137270094C1EB /* DemoEcommerceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258FA6B2AE137270094C1EB /* DemoEcommerceApp.swift */; };
 		5258FA6E2AE137270094C1EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5258FA6D2AE137270094C1EB /* ContentView.swift */; };
 		5258FA702AE137290094C1EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5258FA6F2AE137290094C1EB /* Assets.xcassets */; };
@@ -73,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5241A4D92AF533D700C0484A /* ApplyPaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyPaymentButton.swift; sourceTree = "<group>"; };
+		5241A4DB2AF541B300C0484A /* PaymentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentHandler.swift; sourceTree = "<group>"; };
+		5241A4DD2AF54D6B00C0484A /* DemoEcommerce.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DemoEcommerce.entitlements; sourceTree = "<group>"; };
 		5258FA682AE137270094C1EB /* DemoEcommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoEcommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5258FA6B2AE137270094C1EB /* DemoEcommerceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoEcommerceApp.swift; sourceTree = "<group>"; };
 		5258FA6D2AE137270094C1EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +154,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5241A4D82AF5336D00C0484A /* ApplyPay */ = {
+			isa = PBXGroup;
+			children = (
+				5241A4D92AF533D700C0484A /* ApplyPaymentButton.swift */,
+				5241A4DB2AF541B300C0484A /* PaymentHandler.swift */,
+			);
+			path = ApplyPay;
+			sourceTree = "<group>";
+		};
 		5258FA5F2AE137270094C1EB = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +186,8 @@
 		5258FA6A2AE137270094C1EB /* DemoEcommerce */ = {
 			isa = PBXGroup;
 			children = (
+				5241A4DD2AF54D6B00C0484A /* DemoEcommerce.entitlements */,
+				5241A4D82AF5336D00C0484A /* ApplyPay */,
 				52D81EDA2AEFD309002B8929 /* ViewModifier */,
 				5274FF822AE9648900B9D6A8 /* CachedImage */,
 				5274FF7F2AE9626D00B9D6A8 /* Repository */,
@@ -469,6 +485,7 @@
 				5274FF7A2AE9619000B9D6A8 /* NetworkManager.swift in Sources */,
 				52D81EE02AF03595002B8929 /* OrderItemRow.swift in Sources */,
 				5258FA9B2AE187060094C1EB /* InputView.swift in Sources */,
+				5241A4DC2AF541B300C0484A /* PaymentHandler.swift in Sources */,
 				5270F10C2AE2792B005BC845 /* ContentViewOne.swift in Sources */,
 				5258FA6C2AE137270094C1EB /* DemoEcommerceApp.swift in Sources */,
 				5270F10E2AE2B439005BC845 /* HomeView.swift in Sources */,
@@ -492,6 +509,7 @@
 				5270F10A2AE2710F005BC845 /* AuthViewModel.swift in Sources */,
 				528DA6EE2AEBD3DB00FA67FE /* OrderView.swift in Sources */,
 				528DA6F02AEBF52700FA67FE /* CategoryRepository.swift in Sources */,
+				5241A4DA2AF533D700C0484A /* ApplyPaymentButton.swift in Sources */,
 				5274FF7C2AE961AA00B9D6A8 /* JsonParser.swift in Sources */,
 				5274FF762AE9611200B9D6A8 /* Fetchable.swift in Sources */,
 				526D20272AF3D05500805561 /* CheckboxToggleStyle.swift in Sources */,
@@ -651,9 +669,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DemoEcommerce/DemoEcommerce.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoEcommerce/Preview Content\"";
+				DEVELOPMENT_TEAM = 34PH6JHWGV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -679,9 +699,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DemoEcommerce/DemoEcommerce.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoEcommerce/Preview Content\"";
+				DEVELOPMENT_TEAM = 34PH6JHWGV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

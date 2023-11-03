@@ -11,6 +11,9 @@ class Order: ObservableObject {
 
     @Published var products = [Product]()
     @Published private(set) var productTotal: Double = 0
+    // Payment-related variables
+    let paymentHandler = PaymentHandler()
+    @Published var paymentSuccess = false
 
     func add(item: Product) {
         if let index = products.firstIndex(where: {$0.id == item.id }) {
@@ -33,6 +36,15 @@ class Order: ObservableObject {
         self.productTotal = self.products.reduce(0.0, { total, item in
             total + Double(item.quantity * item.price)
         })
+    }
+
+    // Call the startPayment function from the PaymentHandler. In the completion handler, set the paymentSuccess variable
+    func applePay() {
+        paymentHandler.startPayment(products: products, total: productTotal) { success in
+            self.paymentSuccess = success
+            self.products = []
+            self.productTotal = 0
+        }
     }
 }
 
