@@ -34,6 +34,10 @@ struct ProductListViewCell: View {
 
                 Button {
                     order.add(item: productData)
+                    
+                    startCheckout { clientSecret in
+                         PaymentConfig.shared.paymentIntentClientSecret = clientSecret
+                     }
 
                 } label: {
                     HStack {
@@ -53,6 +57,32 @@ struct ProductListViewCell: View {
     }
 }
 
+extension   ProductListViewCell {
+    private func startCheckout(completion: @escaping (String?) -> Void) {
+
+        let url = URL(string: "https://rogue-quartz-ounce.glitch.me/create-payment-intent")!
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! JSONEncoder().encode(order.products)
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+
+            guard let data = data, error == nil,
+                  (response as? HTTPURLResponse)?.statusCode == 200
+            else {
+                completion(nil)
+                return
+            }
+
+            let checkoutIntentResponse = try? JSONDecoder().decode(CheckoutIntentResponse.self, from: data)
+            completion(checkoutIntentResponse?.clientSecret)
+
+        }.resume()
+
+    }
+}
 struct ProductListViewCell_Previews: PreviewProvider {
     static var previews: some View {
         ProductListViewCell(productData: Product(id: 1, title: "test", price: 12, quantity: 2, total: 12, discountPercentage: 12.0, discountedPrice: 12, thumbnail: "test"))

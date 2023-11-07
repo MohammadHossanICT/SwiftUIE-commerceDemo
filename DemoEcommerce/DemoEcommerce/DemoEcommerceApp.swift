@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import Stripe
 
 @main
 struct DemoEcommerceApp: App {
@@ -15,6 +16,7 @@ struct DemoEcommerceApp: App {
 
     init() {
         FirebaseApp.configure()
+        StripeAPI.defaultPublishableKey = "sk_test_Nld8gSkdLkvjV2evbgeyej2600qPfVtDJ2"
     }
     var body: some Scene {
         WindowGroup {

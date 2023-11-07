@@ -25,7 +25,9 @@ struct ProductListView: View {
                     if viewModel.productLists.count > 0 && !viewModel.refreshing {
 
                         List(viewModel.productList, id: \.self) { product in
-                            ProductListViewCell(productData: product)
+                            NavigationLink(destination: ProductDetailsView(product: product)) {
+                                ProductListViewCell(productData: product)
+                            }
 
                         } .listStyle(.grouped)
                     }

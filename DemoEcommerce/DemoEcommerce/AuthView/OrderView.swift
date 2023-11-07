@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import Stripe
 
 struct OrderView: View {
     @EnvironmentObject var order: Order
     private var fee: Double = 5.00
     @State private var isOn1 = false
     @State private var isOn2 = false
+    @State private var message: String = ""
+    @State private var isSuccess: Bool = false
+    @State private var paymentMethodParams: STPPaymentMethodParams?
+    let paymentGatewayController = PaymentGatewayController()
 
     var body: some View {
 
@@ -140,10 +145,29 @@ struct OrderView: View {
                     HStack {
                         ApplyPaymentButton(action: order.applePay)
                     }
-                }
-                Section {
-                    NavigationLink("Place Order") {
+                    Section {
+                        // Stripe Credit Card TextField Here
+                        STPPaymentCardTextField.Representable.init(paymentMethodParams: $paymentMethodParams)
+                    } header: {
+                        Text("Payment Information")
                     }
+                    HStack {
+                        Spacer()
+                        Button("Pay With Bank Card") {
+                            self.pay()
+                        }
+                        .foregroundColor(.white)
+                        .frame(width: 300, height: 50)
+                        .background(Color(.systemBlue))
+                        .cornerRadius(10)
+                        .padding(.top ,24)
+                        
+                        Spacer()
+                    }
+                }
+                HStack {
+                    Text(message)
+                        .font(.headline)
                 }
             }
             .navigationTitle("Order")
@@ -153,6 +177,57 @@ struct OrderView: View {
                     order.paymentSuccess = false
                 }
             }
+        }
+    }
+}
+extension   OrderView {
+    private func startCheckout(completion: @escaping (String?) -> Void) {
+
+        let url = URL(string: "https://rogue-quartz-ounce.glitch.me/create-payment-intent")!
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! JSONEncoder().encode(order.products)
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+
+            guard let data = data, error == nil,
+                  (response as? HTTPURLResponse)?.statusCode == 200
+            else {
+                completion(nil)
+                return
+            }
+
+            let checkoutIntentResponse = try? JSONDecoder().decode(CheckoutIntentResponse.self, from: data)
+            completion(checkoutIntentResponse?.clientSecret)
+
+        }.resume()
+
+    }
+}
+extension OrderView {
+
+    private func pay() {
+
+        guard let clientSecret = PaymentConfig.shared.paymentIntentClientSecret else {
+            return
+        }
+
+        let paymentIntentParams = STPPaymentIntentParams(clientSecret: clientSecret)
+        paymentIntentParams.paymentMethodParams = paymentMethodParams
+
+        paymentGatewayController.submitPayment(intent: paymentIntentParams) { status, intent, error in
+
+            switch status {
+                case .failed:
+                    message = "Failed"
+                case .canceled:
+                    message = "Cancelled"
+                case .succeeded:
+                    message = "Your payment has been successfully completed!"
+            }
+
         }
     }
 }

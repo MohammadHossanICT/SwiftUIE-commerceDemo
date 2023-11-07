@@ -46,6 +46,13 @@
 		5274FF842AE964A000B9D6A8 /* CacheAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274FF832AE964A000B9D6A8 /* CacheAsyncImage.swift */; };
 		5274FF872AE9656700B9D6A8 /* ProductAsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274FF862AE9656700B9D6A8 /* ProductAsyncImageView.swift */; };
 		5274FF892AE966C200B9D6A8 /* ProductListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5274FF882AE966C200B9D6A8 /* ProductListViewCell.swift */; };
+		528AF7E62AF91AA800B23353 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AF7E52AF91AA800B23353 /* Utils.swift */; };
+		528AF7E92AF929A800B23353 /* Stripe in Frameworks */ = {isa = PBXBuildFile; productRef = 528AF7E82AF929A800B23353 /* Stripe */; };
+		528AF7EB2AF9313100B23353 /* PaymentConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AF7EA2AF9313100B23353 /* PaymentConfig.swift */; };
+		528AF7ED2AF9397A00B23353 /* PaymentGatewayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AF7EC2AF9397A00B23353 /* PaymentGatewayController.swift */; };
+		528AF7EF2AF93B7000B23353 /* Confirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AF7EE2AF93B7000B23353 /* Confirmation.swift */; };
+		528AF7F12AF93D5E00B23353 /* CheckoutIntentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AF7F02AF93D5E00B23353 /* CheckoutIntentResponse.swift */; };
+		528AF8102AFA4E3000B23353 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528AF80F2AFA4E3000B23353 /* ProductDetailsView.swift */; };
 		528DA6EE2AEBD3DB00FA67FE /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DA6ED2AEBD3DA00FA67FE /* OrderView.swift */; };
 		528DA6F02AEBF52700FA67FE /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DA6EF2AEBF52700FA67FE /* CategoryRepository.swift */; };
 		528DA6F42AEBF80600FA67FE /* CategorytListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528DA6F32AEBF80600FA67FE /* CategorytListViewModel.swift */; };
@@ -114,6 +121,12 @@
 		5274FF832AE964A000B9D6A8 /* CacheAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheAsyncImage.swift; sourceTree = "<group>"; };
 		5274FF862AE9656700B9D6A8 /* ProductAsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAsyncImageView.swift; sourceTree = "<group>"; };
 		5274FF882AE966C200B9D6A8 /* ProductListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewCell.swift; sourceTree = "<group>"; };
+		528AF7E52AF91AA800B23353 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		528AF7EA2AF9313100B23353 /* PaymentConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfig.swift; sourceTree = "<group>"; };
+		528AF7EC2AF9397A00B23353 /* PaymentGatewayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentGatewayController.swift; sourceTree = "<group>"; };
+		528AF7EE2AF93B7000B23353 /* Confirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Confirmation.swift; sourceTree = "<group>"; };
+		528AF7F02AF93D5E00B23353 /* CheckoutIntentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutIntentResponse.swift; sourceTree = "<group>"; };
+		528AF80F2AFA4E3000B23353 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
 		528DA6ED2AEBD3DA00FA67FE /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		528DA6EF2AEBF52700FA67FE /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
 		528DA6F32AEBF80600FA67FE /* CategorytListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorytListViewModel.swift; sourceTree = "<group>"; };
@@ -130,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528AF7E92AF929A800B23353 /* Stripe in Frameworks */,
 				5270F1012AE26F9A005BC845 /* FirebaseAuth in Frameworks */,
 				5270F1072AE26F9A005BC845 /* FirebaseStorage in Frameworks */,
 				5270F1032AE26F9A005BC845 /* FirebaseFirestore in Frameworks */,
@@ -186,7 +200,9 @@
 		5258FA6A2AE137270094C1EB /* DemoEcommerce */ = {
 			isa = PBXGroup;
 			children = (
+				528AF7E42AF91A9600B23353 /* UtilsFiles */,
 				5241A4DD2AF54D6B00C0484A /* DemoEcommerce.entitlements */,
+				528AF7E32AF919AB00B23353 /* StripPaymnet */,
 				5241A4D82AF5336D00C0484A /* ApplyPay */,
 				52D81EDA2AEFD309002B8929 /* ViewModifier */,
 				5274FF822AE9648900B9D6A8 /* CachedImage */,
@@ -278,6 +294,8 @@
 				52D81EDF2AF03595002B8929 /* OrderItemRow.swift */,
 				52D81EE12AF07EC2002B8929 /* CartButton.swift */,
 				526D20262AF3D05500805561 /* CheckboxToggleStyle.swift */,
+				528AF7EE2AF93B7000B23353 /* Confirmation.swift */,
+				528AF80F2AFA4E3000B23353 /* ProductDetailsView.swift */,
 			);
 			path = AuthView;
 			sourceTree = "<group>";
@@ -320,6 +338,24 @@
 			path = ProductImage;
 			sourceTree = "<group>";
 		};
+		528AF7E32AF919AB00B23353 /* StripPaymnet */ = {
+			isa = PBXGroup;
+			children = (
+				528AF7EA2AF9313100B23353 /* PaymentConfig.swift */,
+				528AF7EC2AF9397A00B23353 /* PaymentGatewayController.swift */,
+				528AF7F02AF93D5E00B23353 /* CheckoutIntentResponse.swift */,
+			);
+			path = StripPaymnet;
+			sourceTree = "<group>";
+		};
+		528AF7E42AF91A9600B23353 /* UtilsFiles */ = {
+			isa = PBXGroup;
+			children = (
+				528AF7E52AF91AA800B23353 /* Utils.swift */,
+			);
+			path = UtilsFiles;
+			sourceTree = "<group>";
+		};
 		528DA6F52AEBFA8D00FA67FE /* CategoryListViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +393,7 @@
 				5270F1022AE26F9A005BC845 /* FirebaseFirestore */,
 				5270F1042AE26F9A005BC845 /* FirebaseFirestoreSwift */,
 				5270F1062AE26F9A005BC845 /* FirebaseStorage */,
+				528AF7E82AF929A800B23353 /* Stripe */,
 			);
 			productName = DemoEcommerce;
 			productReference = 5258FA682AE137270094C1EB /* DemoEcommerce.app */;
@@ -432,6 +469,7 @@
 			mainGroup = 5258FA5F2AE137270094C1EB;
 			packageReferences = (
 				5270F0FF2AE26F9A005BC845 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				528AF7E72AF929A700B23353 /* XCRemoteSwiftPackageReference "stripe-ios" */,
 			);
 			productRefGroup = 5258FA692AE137270094C1EB /* Products */;
 			projectDirPath = "";
@@ -481,14 +519,19 @@
 				528DA6F42AEBF80600FA67FE /* CategorytListViewModel.swift in Sources */,
 				52D81EDE2AF00C45002B8929 /* Order.swift in Sources */,
 				5258FA972AE16CEE0094C1EB /* LoginView.swift in Sources */,
+				528AF7E62AF91AA800B23353 /* Utils.swift in Sources */,
 				5258FA6E2AE137270094C1EB /* ContentView.swift in Sources */,
 				5274FF7A2AE9619000B9D6A8 /* NetworkManager.swift in Sources */,
+				528AF7F12AF93D5E00B23353 /* CheckoutIntentResponse.swift in Sources */,
 				52D81EE02AF03595002B8929 /* OrderItemRow.swift in Sources */,
 				5258FA9B2AE187060094C1EB /* InputView.swift in Sources */,
+				528AF7EF2AF93B7000B23353 /* Confirmation.swift in Sources */,
 				5241A4DC2AF541B300C0484A /* PaymentHandler.swift in Sources */,
 				5270F10C2AE2792B005BC845 /* ContentViewOne.swift in Sources */,
+				528AF7ED2AF9397A00B23353 /* PaymentGatewayController.swift in Sources */,
 				5258FA6C2AE137270094C1EB /* DemoEcommerceApp.swift in Sources */,
 				5270F10E2AE2B439005BC845 /* HomeView.swift in Sources */,
+				528AF8102AFA4E3000B23353 /* ProductDetailsView.swift in Sources */,
 				52D81EDC2AEFD35E002B8929 /* TextModifier.swift in Sources */,
 				5258FAA22AE1F36D0094C1EB /* User.swift in Sources */,
 				5258FA9D2AE1EE2D0094C1EB /* ProfileView.swift in Sources */,
@@ -501,6 +544,7 @@
 				5274FF782AE9617300B9D6A8 /* Networking.swift in Sources */,
 				5274FF872AE9656700B9D6A8 /* ProductAsyncImageView.swift in Sources */,
 				5258FA992AE170340094C1EB /* RegistrationView.swift in Sources */,
+				528AF7EB2AF9313100B23353 /* PaymentConfig.swift in Sources */,
 				5274FF642AE91F4D00B9D6A8 /* NetworkError.swift in Sources */,
 				5274FF712AE9606500B9D6A8 /* ProductData.swift in Sources */,
 				5274FF692AE92A6600B9D6A8 /* ProductListView.swift in Sources */,
@@ -670,10 +714,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = DemoEcommerce/DemoEcommerce.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DemoEcommerce/Preview Content\"";
-				DEVELOPMENT_TEAM = 34PH6JHWGV;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -688,6 +732,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Swift.DemoEcommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -846,6 +891,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		528AF7E72AF929A700B23353 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -868,6 +921,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5270F0FF2AE26F9A005BC845 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		528AF7E82AF929A800B23353 /* Stripe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 528AF7E72AF929A700B23353 /* XCRemoteSwiftPackageReference "stripe-ios" */;
+			productName = Stripe;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
