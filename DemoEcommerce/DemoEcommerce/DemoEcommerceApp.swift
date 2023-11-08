@@ -13,6 +13,8 @@ import Stripe
 struct DemoEcommerceApp: App {
     @StateObject var viewModel = AuthViewModel()
     @StateObject var order = Order()
+    @StateObject var favorites = Favorites()
+
 
     init() {
         FirebaseApp.configure()
@@ -23,6 +25,7 @@ struct DemoEcommerceApp: App {
            ContentViewOne()
                 .environmentObject(viewModel)
                 .environmentObject(order)
+                .environmentObject(favorites)
         }
     }
 }

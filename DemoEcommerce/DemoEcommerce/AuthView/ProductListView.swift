@@ -11,6 +11,8 @@ struct ProductListView: View {
     
     @StateObject var viewModel = ProductListViewModel(repository: ProductRepositoryImplementation(networkManager: NetworkManager()))
     @State var searchText = ""
+    @EnvironmentObject var favorites: Favorites
+
 
     var body: some View {
 

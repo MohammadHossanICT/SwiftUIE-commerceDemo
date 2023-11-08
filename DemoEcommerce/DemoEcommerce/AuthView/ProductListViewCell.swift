@@ -11,6 +11,7 @@ struct ProductListViewCell: View {
 
     let productData: Product
     @EnvironmentObject var order: Order
+    @EnvironmentObject var favorites: Favorites
 
     var body: some View {
         HStack {
@@ -53,6 +54,14 @@ struct ProductListViewCell: View {
                 .background(Color(.systemBlue))
                 .cornerRadius(10)
             }
+            VStack {
+                if favorites.contains(productData) {
+                    Spacer()
+                    Image(systemName: "heart.fill")
+                        .accessibilityLabel("This is a favorite resort")
+                        .foregroundColor(.red)
+                }
+            }.frame(width: 10, height: 20)
         }
     }
 }

@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ProductDetailsView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var favorites: Favorites
+
     @State private var title: String = ""
     @State private var id: String = ""
     @State private var price: String = ""
     @State private var currentAmount: CGFloat = 0
     @State private var lastAmount: CGFloat = 0
-
-
 
     let product: Product
 
@@ -50,6 +50,18 @@ struct ProductDetailsView: View {
                     .foregroundColor(Color.gray)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(size: 15))
+
+                Button(favorites.contains(product) ? "Remove Favorites" : "Add to Favorites") {
+                    if favorites.contains(product) {
+                        favorites.remove(product)
+                    } else {
+                        favorites.add(product)
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                .background(Color(.systemBlue))
+                .cornerRadius(10)
+                .frame(maxWidth: .infinity, alignment: .leading)
 
             }.onAppear(perform: {
                 title = product.title
